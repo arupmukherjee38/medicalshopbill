@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Create Bill</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="">Upload Medicine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="update">Update Medicine</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="offset-xl-2 col-xl-8 col-12" id="form">
+       <div class="card-body">
+          <form id="savemedi">
+            <div class="table-responsive-sm clearfix">
+              <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">Medicine Name</th>
+                            <th>Batch No</th>
+                            <th>Expire Date</th>
+                            <th class="right">Price</th>
+                            <th class="right">
+                                <input type="button" class="btn btn-primary" id="addrowupload" value="Add">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                            <td>
+                                <input type="text" name="medicinename" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="batchNo" class="form-control" />
+                            </td>
+                            <td>
+                                <input id="datepicker" name="expireDate" class="form-control"/>
+                            </td>
+                            <td class="right">
+                                <input type="text" name="price" class="form-control"/>
+                            </td>
+                            <td class="right">
+                                <a class="deleteRow"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+             </div>
+            <div class="col-lg-2 col-sm-1 ml-auto">
+                <input type="submit" class="btn btn-primary right"  value="Upload">
+            </div>
+          </form> 
+        </div>
+    </div>
+
+    <div class="card-footer bg-white">
+        <p class="mb-0">copyright : </p>
+    </div>
+</body>
+
+</html>

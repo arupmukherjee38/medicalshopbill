@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link disabled" href="">Create
+						Bill</a></li>
+				<li class="nav-item"><a class="nav-link" href="uploadfrom">Upload
+						Medicine</a></li>
+				<li class="nav-item"><a class="nav-link" href="update">Update
+						Medicine</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="offset-2 col-sm-8" id="form">
+		<div class="card">
+			<div class="card-header p-20" th:object="${shop}">
+				<a class="pt-2 d-inline-block" data-abc="true"><h10
+						th:text="${shop.shopName}" /></a> <a class="pt-2 d-inline-block"
+					data-abc="true"><h10 th:text="${shop.shopAdd}" /></a> <a
+					class="pt-2 d-inline-block" data-abc="true"><h10
+						th:text="${shop.shopPhone}" /></a> <a class="pt-2 d-inline-block"
+					data-abc="true"><h10 th:text="${shop.shopEmail}" /></a>
+				<div class="float-right">
+					<h10 class="mb-0">Invoice #12223</h10>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label class="control-label">Select Date</label>
+						<input id="datepicker">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-body">
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h12 class="mb-3">To:</h12>
+					<h3 class="text-dark mb-1">
+						<div class="form-group">
+							<input type="text" class="form-control form-control-sm"
+								id="patientname" placeholder="Patient Name"> <input
+								type="text" class="form-control form-control-sm"
+								id="customerphone" placeholder="Patient Phone"> <input
+								type="text" class="form-control form-control-sm" id="doctorname"
+								placeholder="Doctor Name">
+						</div>
+					</h3>
+				</div>
+			</div>
+
+			<div class="table-responsive-sm clearfix">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="center">Medicine Name</th>
+							<th>Batch No</th>
+							<th>Expire Date</th>
+							<th class="right">Price</th>
+							<th class="center">Qty</th>
+							<th class="right">Total</th>
+							<th class="right"><input type="button"
+								class="btn btn-primary" id="addrow" value="Add"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="center"><input type="text" list="medicinename"
+								class="form-control" name="medicinename" autocomplete="off" />
+								<datalist id="medicinename">
+								</datalist></td>
+							<td><input type="text" id="batchno" name="batchno" class="form-control" />
+							</td>
+							<td><input type="text" id="expiredate" name="expiredate"
+								class="form-control" /></td>
+							<td class="right"><input type="text" id="price" name="price"
+								class="form-control" /></td>
+							<td class="center"><input type="number" name="qty"
+								class="form-control" /></td>
+							<td class="right"><input type="button" name="total"
+								class="form-control" /></td>
+							<td class="right"><a class="deleteRow"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-lg-2 col-sm-1 ml-auto">
+				<button class="btn btn-primary right" onclick="sum()">Total</button>
+			</div>
+		</div>
+
+		<div class="container text-center" id="box">
+			<button class="btn btn-primary hidden-print" onclick="print()">
+				<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+				Print
+			</button>
+			<button class="btn btn-primary btn-danger clearfix" id="exportButton">
+				<span class="fa fa-file-pdf-o"></span> Export to PDF
+			</button>
+		</div>
+
+		<div class="card-footer bg-white">
+			<p class="mb-0">copyright :</p>
+		</div>
+</body>
+
+</html>

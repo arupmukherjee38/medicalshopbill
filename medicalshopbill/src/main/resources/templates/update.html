@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Create Bill</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadfrom">Upload Medicine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="">Update Medicine</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="col-12" id="form">
+        <div class="card-body">
+            <div class="table-responsive-sm clearfix">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">Medicine Name</th>
+                            <th>Batch No</th>
+                            <th>Expire Date</th>
+                            <th class="right">Price</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="mediDtl : ${mediDtls}">
+                            <td class="center">
+                                <input type="text" list="medicinename" class="form-control" name="medicinename"
+                                    autocomplete="off" th:value="${mediDtl.medicineName}"/>
+                                <datalist id="medicinename">
+                                </datalist>
+                            </td>
+                            <td>
+                                <input type="text" name="batchno" class="form-control" th:value="${mediDtl.batchNo}" />
+                            </td>
+                            <td>
+                                <input id="datepicker" name="expiredate" class="form-control" th:value="${mediDtl.expireDate}"/>
+                            </td>
+                            <td class="right">
+                                <input type="text" name="price" class="form-control" th:value="${mediDtl.price}"/>
+                            </td>
+                            <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer bg-white">
+        <p class="mb-0">copyright : </p>
+    </div>
+</body>
+
+</html>
